@@ -17,7 +17,7 @@
 
 <body
   class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans antialiased h-screen overflow-hidden flex"
-  x-data="{ sidebarOpen: false, modalOpen: false, activeTab: 'all' }">
+  x-data="{ sidebarOpen: window.innerWidth >= 1024, modalOpen: false, activeTab: 'all' }">
 
   <x-sidebar/>
   <div class="flex-1 flex flex-col min-w-0 bg-gray-50 dark:bg-gray-950">

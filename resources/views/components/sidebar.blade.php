@@ -1,14 +1,14 @@
-<!-- Mobile sidebar bacGood Morning, Alexkdrop -->
-<div x-show="sidebarOpen" class="fixed inset-0 z-20 bg-black/50 backdrop-blur-sm transition-opacity"
+<!-- Mobile sidebar backdrop -->
+<div x-show="sidebarOpen" class="fixed inset-0 z-20 bg-black/50 backdrop-blur-sm transition-opacity lg:hidden"
   @click="sidebarOpen = false" x-transition:enter="transition-opacity ease-linear duration-300"
   x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
   x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100"
   x-transition:leave-end="opacity-0">
 </div>
 
-<aside @click.outside="sidebarOpen = false"
-  class="fixed inset-y-0 left-0 z-30 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transform transition-transform duration-300 lg:translate-x-0 lg:relative lg:inset-0 flex flex-col"
-  :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+<aside @click.outside="if (window.innerWidth < 1024) sidebarOpen = false"
+  class="fixed inset-y-0 left-0 z-30 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 transition-all duration-300 lg:relative lg:inset-0 flex flex-col overflow-hidden whitespace-nowrap"
+  :class="sidebarOpen ? 'w-64 translate-x-0' : 'w-0 -translate-x-full lg:translate-x-0 lg:border-r-0'">
   <div class="flex items-center justify-center h-16 border-b border-gray-200 dark:border-gray-800 px-4">
     <div class="flex items-center gap-2">
       <div
